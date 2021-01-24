@@ -5,8 +5,12 @@ from django.http import JsonResponse
 
 class PostSerializers(serializers.ModelSerializer):
     class Meta:
-        model=Posts
+        model=Postnews
         fields =('__all__')
+class TransferSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Transfer
+        fields=('__all__')
 
 
         
