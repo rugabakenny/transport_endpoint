@@ -21,17 +21,55 @@ def posts(request):
         if serializer.is_valid():
             serializer.save()
             return JsonResponse({'message': 'success', 'data':serializer.da})
-def btransfer(request):
-    if request.method == 'GET':
-        reg = Transfer.objects.all()
-        serializer = TransferSerializer(reg, many=True)
-        return JsonResponse(serializer.data,safe=False)
-    
 
-    elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = TransferSerializer(data=data)
+
+def btgorilla(request):
+    if request.method =='GET':
+        getdata = Gorilla.objects.all().order_by('-id')[:40]
+        serializer =GorillaSerializers(getdata, many=True)
+        return JsonResponse({'message': 'success', 'data':serializer.data}, safe=False)
+    elif request.method=='POST':
+        data =JSONParser().parser(request)
+        serializer=GorillaSerializers(data=data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse({'message':'successful'}, status=201)
-        return JsonResponse(serializer.errors,status=400)
+            return JsonResponse({'message': 'success', 'data':serializer.da})
+
+def btlake(request):
+    if request.method =='GET':
+        getdata = Lake.objects.all().order_by('-id')[:40]
+        serializer =LakeSerializers(getdata, many=True)
+        return JsonResponse({'message': 'success', 'data':serializer.data}, safe=False)
+    elif request.method=='POST':
+        data =JSONParser().parser(request)
+        serializer=LakeSerializers(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'message': 'success', 'data':serializer.da})
+
+def bthotel(request):
+    if request.method =='GET':
+        getdata = Hotel.objects.all().order_by('-id')[:40]
+        serializer =HotelSerializers(getdata, many=True)
+        return JsonResponse({'message': 'success', 'data':serializer.data}, safe=False)
+    elif request.method=='POST':
+        data =JSONParser().parser(request)
+        serializer=HotelSerializers(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'message': 'success', 'data':serializer.da})
+
+
+def btmountain(request):
+    if request.method =='GET':
+        getdata = Mountain.objects.all().order_by('-id')[:40]
+        serializer =MountainSerializers(getdata, many=True)
+        return JsonResponse({'message': 'success', 'data':serializer.data}, safe=False)
+    elif request.method=='POST':
+        data =JSONParser().parser(request)
+        serializer=MountainSerializers(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse({'message': 'success', 'data':serializer.da})
+
+

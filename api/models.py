@@ -11,10 +11,44 @@ class Postnews(models.Model):
     def __str__(self):
         return self.title
 
-class Transfer(models.Model):
-    sentfrom =models.CharField(max_length=244)
-    sendto = models.CharField(max_length=255)
-    amount = models.CharField(max_length=100)
-    
-    def _str_(self):
-        return self.amount
+class Gorilla(models.Model):
+    title = models.CharField(max_length=255)
+    owner = models.CharField(max_length=255)
+    location =models.CharField(max_length=255)
+    image = models.ImageField()
+    price =models.CharField(max_length=255)
+    description = models.TextField()
+    def __str__(self):
+        return self.title
+
+
+class Lake(models.Model):
+    title = models.CharField(max_length=255)
+    owner = models.CharField(max_length=255)
+    location =models.CharField(max_length=255)
+    image = models.ImageField()
+    price =models.CharField(max_length=255)
+    description = models.TextField()
+    def __str__(self):
+        return self.title
+
+class Hotel(models.Model):
+    title = models.CharField(max_length=255)
+    owner = models.CharField(max_length=255)
+    location =models.CharField(max_length=255)
+    image = models.ImageField()
+    price =models.CharField(max_length=255)
+    description = models.TextField()
+    def __str__(self):
+        return self.title
+class Mountain(models.Model):
+    title = models.CharField(max_length=255)
+    owner = models.CharField(max_length=255)
+    location =models.CharField(max_length=255)
+    image = models.ImageField()
+    price =models.CharField(max_length=255)
+    description = models.TextField()
+    def __str__(self):
+        return self.title
+
+
